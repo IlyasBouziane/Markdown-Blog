@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
     <title>MyBlog</title>
 </head>
+
 <body>
     <div class="container">
         <h1 class="mb-4">My Blog Posts</h1>
-        <a class="btn btn-success" href="/posts/new">New Post</a>
+        <a class="btn btn-success"
+            href="/posts/new">New Post</a>
 
         <% posts.forEach(post => { %>
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h4 class="card-title"><%= post.title %></h4>
-                    <h6 class="card-subtitle text-muted mb-2"><%= post.dateCreation.toLocaleDateString() %></h6>     
-                    <p class="card-text mb-4"><%= post.description %></p>
-                    <div>
-                        <a class="btn btn-info" href="/posts/<%= post.id %>">Read More</a>
-                        <a class="btn btn-secondary" href="/posts/">Edit</a>
-                        <a class="btn btn-danger" href="/posts/">Delete</a>    
-                    </div>
-                </div> 
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <%= post.title %></h4>
+                <h6
+                    class="card-subtitle text-muted mb-2">
+                    <%= post.dateCreation.toLocaleDateString() %>
+                </h6>
+                <p class="card-text mb-4">
+                    <%= post.description %></p>
+                <div>
+                    <a class="btn btn-info"
+                        href="/posts/<%= post.slug %>">Read
+                        More</a>
+                    <a class="btn btn-secondary"
+                        href="/posts/">Edit</a>
+                    <form class="d-inline"
+                        action="/posts/<%= post.id %>?_method=DELETE "
+                        method="POST">
+                        <button type="submit"
+                            class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
             </div>
+        </div>
         <%});%>
     </div>
-    
+
 </body>
+
 </html>
