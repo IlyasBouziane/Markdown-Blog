@@ -1,10 +1,19 @@
 const express = require('express')
+const articleRouter = require('./routes/articles')
 const app = express()
 
 app.set('view engine','ejs')
 
-app.get('/',(req,resp) => {
-    resp.send('Hello World')
+app.use('/posts',articleRouter)
+
+app.get('/',(req,res) => {
+    res.render('articles/index',{
+        articles : [{
+            title:'Title',
+            dateCreation: new Date().toLocaleDateString(),
+            description:'Markdown blog part 1'
+        }]
+    })
 })
 
 app.listen(8080)
