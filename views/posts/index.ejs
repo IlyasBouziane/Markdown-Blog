@@ -15,12 +15,12 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <h4 class="card-title"><%= post.title %></h4>
-                    <h6 class="card-subtitle text-muted mb-2"><%= post.dateCreation %></h6>     
+                    <h6 class="card-subtitle text-muted mb-2"><%= post.dateCreation.toLocaleDateString() %></h6>     
                     <p class="card-text mb-4"><%= post.description %></p>
                     <div>
-                        <a class="btn btn-info" href="#">Read More</a>
-                        <a class="btn btn-secondary" href="#">Edit</a>
-                        <a class="btn btn-danger" href="#">Delete</a>    
+                        <a class="btn btn-info" href="/posts/<%= post.id %>">Read More</a>
+                        <a class="btn btn-secondary" href="/posts/">Edit</a>
+                        <a class="btn btn-danger" href="/posts/">Delete</a>    
                     </div>
                 </div> 
             </div>

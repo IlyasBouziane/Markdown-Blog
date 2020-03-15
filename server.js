@@ -5,10 +5,14 @@ const express = require('express')
 const app = express()
 
 /**
- * importes routers
+ * imports routers
  */
 const articleRouter = require('./routes/posts')
 
+/**
+ * imports model
+ */
+const Post = require('./models/post')
 /**
  * Connection to MongoDB
  */
@@ -21,13 +25,10 @@ app.set('view engine','ejs')
 
 app.use('/posts',articleRouter)
 
-app.get('/',(req,res) => {
+app.get('/',async (req,res) => {
+    const posts = await Post.find().sort({dateCreation : 'desc'})
     res.render('posts/index',{
-        posts : [{
-            title:'Title',
-            dateCreation: new Date().toLocaleDateString(),
-            description:'Markdown blog part 1'
-        }]
+        posts : posts
     })
 })
 

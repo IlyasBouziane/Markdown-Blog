@@ -25,7 +25,14 @@ router.post('/new',async (req,res)=>{
     
 })
 
-router.get('/:id',(req,res)=> {
+router.get('/:id', async (req,res)=> {
+    const post = await Post.findById(req.params.id)
+    post == null ? res.redirect('/') : res.render('posts/display',{post : post})
+
+})
+
+
+router.get('/edit/:id',async (req,res)=>{
     
 })
 
