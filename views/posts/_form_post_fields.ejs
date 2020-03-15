@@ -1,17 +1,17 @@
 <div class="form-group">
     <label for="title">Title</label>
-    <input required type="text" class="form-control"
+    <input value="<%=post.title %>" name="title" required type="text" class="form-control"
         id="title" />
 </div>
 <div class="form-group">
     <label for="desc">Description</label>
-    <textarea required class="form-control" id="desc"
-        rows="3"></textarea>
+    <textarea name="description" required class="form-control" id="desc"
+        rows="3"><%=post.description %></textarea>
 </div>
 <div class="form-group">
     <label for="md">Markdown</label>
-    <textarea required class="form-control" id="md"
-        rows="5"></textarea>
+    <textarea  name="markdown" required class="form-control" id="md"
+        rows="5"><%=post.markdown %></textarea>
 </div>
 
 <a href="/"

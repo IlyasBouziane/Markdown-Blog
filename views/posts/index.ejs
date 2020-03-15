@@ -11,14 +11,14 @@
         <h1 class="mb-4">My Blog Posts</h1>
         <a class="btn btn-success" href="/posts/new">New Post</a>
 
-        <% articles.forEach(article => { %>
+        <% posts.forEach(post => { %>
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title"><%= article.title %></h4>
-                    <h6 class="card-subtitle text-muted mb-2"><%= article.dateCreation %></h6>     
-                    <p class="card-text mb-4"><%= article.description %></p>
+                    <h4 class="card-title"><%= post.title %></h4>
+                    <h6 class="card-subtitle text-muted mb-2"><%= post.dateCreation %></h6>     
+                    <p class="card-text mb-4"><%= post.description %></p>
                     <div>
-                        <a class="btn btn-info" href="#">Details</a>
+                        <a class="btn btn-info" href="#">Read More</a>
                         <a class="btn btn-secondary" href="#">Edit</a>
                         <a class="btn btn-danger" href="#">Delete</a>    
                     </div>
