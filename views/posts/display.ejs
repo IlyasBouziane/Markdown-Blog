@@ -19,7 +19,7 @@
         <a href="/" class="btn btn-secondary">All Posts</a>
         <a href="/posts/edit/<%= post.id %>" class="btn btn-info">Edit</a>
         <hr>
-        <%= post.markdown %>
+        <%- post.sanitizedHTML %>
       
     </div>
 </body>
