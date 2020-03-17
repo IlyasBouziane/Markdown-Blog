@@ -30,7 +30,8 @@ router.get('/edit/:id',async (req,res)=>{
     res.render('posts/edit',{post : post})
 })
 router.put('/edit/:id', async (req,res,next) =>{
-    req.article = await Post.findById(req.params.id)
+    req.post = await Post.findById(req.params.id)
+    next()
 },savePostAndRedirect('edit'))
 
 
@@ -43,7 +44,7 @@ router.delete('/:id',async (req,res)=>{
 
 function savePostAndRedirect(path){
     return async (req,res)=>{
-        let post = req.post
+        let post = req.post 
         post.title = req.body.title
         post.description =req.body.description
         post.markdown =req.body.markdown
