@@ -34,7 +34,7 @@
                         href="/posts/<%= post.slug %>">Read
                         More</a>
                     <a class="btn btn-secondary"
-                        href="/posts/">Edit</a>
+                        href="/posts/edit/<%= post.id %> ">Edit</a>
                     <form class="d-inline"
                         action="/posts/<%= post.id %>?_method=DELETE "
                         method="POST">

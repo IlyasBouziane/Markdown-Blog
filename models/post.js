@@ -32,7 +32,6 @@ const postSchema = new mongoose.Schema({
 })
 
 postSchema.pre('validate', function(next) {
-    console.log(this)
     if(this.title){
         this.slug = slugify(this.title,{strict : true,lower:true})
       
@@ -41,9 +40,7 @@ postSchema.pre('validate', function(next) {
         this.sanitizedHTML = dompurify.sanitize(marked(this.markdown))
     }
     next()
-    console.log(this.markdown)
 
-    
 })
 
 module.exports = mongoose.model('Post',postSchema)
