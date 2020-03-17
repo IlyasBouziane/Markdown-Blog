@@ -24,23 +24,26 @@ const postSchema = new mongoose.Schema({
     },
     slug : {
         type : String,
-        unique : true
     },
     sanitizedHTML : {
         type :String,
-        required : true
     } 
     
 })
 
-postSchema.pre('save', (next) => {
+postSchema.pre('validate', function(next) {
+    console.log(this)
     if(this.title){
         this.slug = slugify(this.title,{strict : true,lower:true})
+      
     }
     if(this.markdown){
         this.sanitizedHTML = dompurify.sanitize(marked(this.markdown))
     }
     next()
+    console.log(this.markdown)
+
+    
 })
 
 module.exports = mongoose.model('Post',postSchema)

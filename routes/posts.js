@@ -42,7 +42,7 @@ router.get('/edit/:slug',async (req,res)=>{
 
 
 router.delete('/:id',async (req,res)=>{
-    await myblog.posts.drop()
+    await Post.findByIdAndDelete(req.params.id)
     res.redirect('/')
 })
 
