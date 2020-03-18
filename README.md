@@ -17,3 +17,18 @@ I have used the following libraries :
 - **Bootstrap** v4.4.1
 
 ## Demo
+
+
+<img src="screenshots/screen1.PNG"/>
+
+<img src="screenshots/screen2.PNG"/>
+
+<img src="screenshots/screen3.PNG"/>
+
+<img src="screenshots/screen4.PNG"/>
+
+<img src="screenshots/screen5.PNG"/>
+
+<img src="screenshots/screen6.PNG"/>
+
+<img src="screenshots/screen7.PNG"/>
